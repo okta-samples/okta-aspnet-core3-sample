@@ -1,3 +1,33 @@
+# Okta Spring Security & Okta-Hosted Login Page Example
+
+This example shows you how to use the [Okta Spring Boot Library][] to login a user.  The login is achieved through the [Authorization Code Flow][] where the user is redirected to the Okta-Hosted login page.  After the user authenticates, they are redirected back to the application and a local cookie session is created.
+
+## Prerequisites
+
+Before running this sample, you will need the following:
+
+* [Java 11+](https://sdkman.io/jdks)
+* [The Okta CLI Tool](https://github.com/oktadeveloper/okta-cli/blob/master/README.md#installation)
+* An Okta Developer Account, create one using `okta register`, or configure an existing one with `okta login`
+
+## Get the Code
+
+Grab and configure this project using `okta start spring-boot`
+
+## Run the Example
+
+```bash
+./mvnw spring-boot:run
+```
+
+For more details on how to build an application with Okta and Spring Boot / Spring Security you can read [this blog post](https://developer.okta.com/blog/2019/05/15/spring-boot-login-options).
+
+[Okta Spring Boot Library]: https://github.com/okta/okta-spring-boot
+[OIDC Web Application Setup Instructions]: https://developer.okta.com/authentication-guide/implementing-authentication/auth-code#1-setting-up-your-application
+[Authorization Code Flow]: https://developer.okta.com/authentication-guide/implementing-authentication/auth-code
+
+
+
 # ASP.NET Core & Okta-Hosted Sign-In Page Example
 
 This example shows you how to use the [Okta ASP.NET Core SDK] to sign in a user. The user's browser is first redirected to the Okta-hosted sign-in page. After the user authenticates, they are redirected back to your application. ASP.NET Core automatically populates `HttpContext.User` with the information Okta sends back about the user.
@@ -6,14 +36,13 @@ This example shows you how to use the [Okta ASP.NET Core SDK] to sign in a user.
 
 Before running this example, you will need the following:
 
-* An Okta Developer Account, you can sign up for one at https://developer.okta.com/signup/.
-* An Okta Application, configured for Web mode. This is done from the [Okta Developer Console] and you can find instructions [here][OIDC Web Application Setup Instructions].  When following the wizard, use the default properties.  They are designed to work with our sample applications.
+* An Okta Developer Account, create one using `okta register`, or configure an existing one with `okta login`
 
 ## Running This Example
 
-### Clone this repository
+## Get the Code
 
-```git clone https://github.com/okta/samples-aspnetcore.git```
+Grab and configure this project using `okta start aspnet-core3`
 
 ### Run the web application
 
@@ -39,22 +68,6 @@ Navigate to the folder where the project file is located and type the following:
 
 If you’ve never run an ASP.NET Core 3.x application before, you may notice a strange error page come up warning you that the site is potentially unsafe.
 This is because ASP.NET Core creates an HTTPS development certificate for you as part of the first-run experience, but it still needs to be trusted. You can ignore the warning by clicking on Advanced and telling the browser that it’s okay to visit this site even though there is no certificate for it. Or you can trust the certificate to get rid of this warning, check out [Configuring HTTPS in ASP.NET Core across different platforms] for more details.
-
-### Add the correct configuration to the Okta Developer Console (including the port you just found in [Run the web application](#run-the-web-application))
-
-Go to your [Okta Developer Console] and update the following parameters in your Okta Web Application configuration:
-* **Login redirect URI** - for example, https://localhost:5001/authorization-code/callback
-* **Logout redirect URI** - for example, https://localhost:5001/signout/callback
-
-For step-by-step instructions, visit the Okta [Sign Users in to Your Web Application guide] which will show you how to sign users in using Okta and, [Sign Users Out guide] which will show you how to sign users out of your app and out of Okta.
-
-### Add the same configuration to the sample's appsettings
-
-Replace the okta configuration placeholders in the `appsettings.json` with your configuration values from the [Okta Developer Console]. 
-You can see all the available configuration options in the [okta-aspnet GitHub](https://github.com/okta/okta-aspnet/blob/master/README.md).
-For step-by-step instructions, visit the Okta [Sign Users in to Your Web Application guide]. The guide will walk you through adding Okta sign-in to your ASP.NET application.
-
-### Run again and try to sign in
 
 Click the **Sign In** link in the Home page and it will redirect you to the Okta hosted sign-in page.
 
