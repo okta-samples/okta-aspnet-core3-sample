@@ -5,7 +5,7 @@ oauthClient:
   applicationType: web
 
 directions: |+2
-  Okta configuration written to: okta-aspnet-core3-sample/appsettings.json
-  Don't EVER commit okta-aspnet-core3-sample/appsettings.json into source control
+  Okta configuration written to: okta-aspnetcore-mvc-example/appsettings.json
+  Don't EVER commit okta-aspnetcore-mvc-example/appsettings.json into source control
   Run this application with:
       dotnet run --project okta-aspnetcore-mvc-example
