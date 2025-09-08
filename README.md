@@ -4,13 +4,49 @@ This example shows you how to use the [Okta ASP.NET Core SDK] to sign in a user.
 
 ## Prerequisites
 
-Before running this example, you will need the following:
+Before running this sample, you will need an Okta Integrator Free Plan account. To get one, sign up for an [Integrator account](https://developer.okta.com/login). Once you have an account, sign in to your [Integrator account](https://developer.okta.com/login). Next, in the Admin Console:
 
-* An Okta Developer Account, create one using `okta register`, or configure an existing one with `okta login`
+1. Go to **Applications > Applications**
+2. Click **Create App Integration**
+3. Select **OIDC - OpenID Connect** as the sign-in method
+4. Select **Web Application** as the application type, then click **Next**
+5. Enter an app integration name
+6. Configure the redirect URIs:
+- Accept the default redirect URI values:
+- **Sign-in redirect URIs:**
+  - `https://localhost:5001/authorization-code/callback`
+  - `http://localhost:8080/authorization-code/callback`
+- **Sign-out redirect URIs:**
+  - `https://localhost:5001`
+  - `http://localhost:8080`
+7. In the **Controlled access** section, select the appropriate access level
+8. Click **Save**
+
+Creating an OIDC Web App manually in the Admin Console configures your Okta Org with the application settings. You may also need to configure trusted origins for `https://localhost:5001` and `http://localhost:8080` in **Security > API > Trusted Origins**.
 
 ## Running This Example
 
-Grab and configure this project using `okta start aspnet-core3`
+### Get the code
+
+```bash
+git clone https://github.com/okta-samples/okta-aspnet-core3-sample.git
+cd okta-aspnet-core3-sample
+```
+
+Update your config file at `okta-aspnetcore-mvc-example/appsettings.json` with the values from your application's configuration:
+
+```text
+"OktaDomain": "https://dev-133337.okta.com",
+"ClientId": "0oab8eb55Kb9jdMIr5d6",
+"ClientSecret": "NEVER-SHOW-SECRETS"
+```
+
+### Where are my new app's credentials?
+
+After creating the app, you can find the configuration details on the app’s **General** tab:
+- **Client ID:** Found in the **Client Credentials** section
+- **Client Secret:** Click **Show** in the **Client Credentials** section to reveal
+- **Okta Domain:** Found in the **Issuer URI** field for the authorization server that appears by selecting **Security > API** from the navigation pane.
 
 ### Run the web application
 
